@@ -23,7 +23,7 @@ for i in np.arange(37.709024, 37.805807+0.0032261, 0.0032261):
 
 # I actually did not end up using the doctors from LA and SD in DoctorSnapshot's model.
 # This is because I made some indexing mistakes in a later step when I scrappped Yelp for their reviews.
-# I couldn't scrap Yelp again for a long time because I was banned quickly.
+# I couldn't scrape Yelp again for a long time because I was banned quickly.
 # Example for LA.
 # for i in np.arange(33.927934, 34.315607+0.0032261, 0.0032261):
 #     for j in np.arange(-118.656211,-118.150840+0.0045192, 0.0045192):
