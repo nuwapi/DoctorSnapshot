@@ -1,5 +1,7 @@
-# Created by Nuo Wang.
+#!/usr/bin/env python3
+# Created by Nuo wang.
 # Last modified on 8/16/2017.
+
 # BetterDoctor is a database that host a large number of doctor profiles in the US.
 # I got my initial round of doctor profiles for doctors in SF, LA and SF through the BetterDoctor API.
 # Here I have left out my BetterDoctor API key, if you want to use this code, you'll have to supply your own key.
