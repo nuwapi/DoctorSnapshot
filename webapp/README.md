@@ -1,5 +1,5 @@
 # Instructions for running/deploying the DoctorSnapshot webapp
-The DoctorSnapshot webapp is [Python Flask](http://flask.pocoo.org/) based, to run the DoctorSnapshot webapp, you will need to download this entire directory first and put in your [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) on lines 16 and 17 of `app.py`. Then you can run the app locally or deploy it to a server. An example of deploying to Heroku is given here.
+The DoctorSnapshot webapp is [Python Flask](http://flask.pocoo.org/) based. To run the DoctorSnapshot webapp, you will need to download this entire directory first and put in your [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) on lines 16 and 17 of `app.py`. Then you can run the app locally or deploy it to a server. An example of deploying to Heroku is given here.
 
 ## 1. Running the DoctorSnapshot app locally
 Run `app.py`:
