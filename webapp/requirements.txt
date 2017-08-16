@@ -1,0 +1,7 @@
+flask==0.12.2
+jinja2==2.7.2
+flask_googlemaps==0.2.4
+geocoder==1.22.6
+numpy==1.12.1
+pandas==0.20.1
+gunicorn==19.6.0

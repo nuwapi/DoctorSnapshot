@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Nuo Wang">
+
+    <title>DoctorSnapshot</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../static/css/doctor-item.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Initialize google map module -->
+    {{"decoupled-map"|googlemap_js(37.774507, -122.419255, varname="decoupledmap", markers=[(37.774507, -122.419255)])}}
+    {{movingmap.js}}
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1 class="neue"><font color="#fff">Doctor</font><font color="#4286f4">Snapshot</font><font color="#848484"> for SF doctors</font></h1>
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <br><br>
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-4">                
+                <form method="POST" action="">
+                <div>
+                <h3 class="twofive">Doctor name</h3>
+                <input type="text" name="ticker" value="{{doctor_name}}" placeholder="try: Mitchell" size="30"/>
+                <h3 class="twofive">Address</h3>
+                <input type="text" name="ticker" value="{{address}}" placeholder="try: 367B 9th St" size="30"/><br><br>
+    	            </div>
+                <br>
+                <input type="submit" value="Search" size="30"/>
+                </form>
+                {% if selected|length > 0 and selected|length == 1 %}
+                Found {{selected|length}} doctor!
+                {% elif selected|length > 1 %}
+                Found {{selected|length}} doctors!
+                {% endif %}
+            </div>
+
+
+
+            <div class="col-md-8">
+                <br>
+                <div class="thumbnail">                
+                    <center>{{movingmap.html}}</center>
+                </div>
+
+                {% for index in range(0, selected|length) %}
+                <div class="well">
+                        <h1 class="pull-right"><img src="../static/images/l{{index}}.png">&nbsp&nbsp</h1>
+                        <h2><b>{{selected[index]["first_name"] + " " + selected[index]["last_name"] + ", " + selected[index]["title"]}}</b></h2>
+                        {{selected[index]["specialty"]}}
+                        <hr>
+                        
+                        {% if  selected[index]["percent1"] != "NONE" %}
+                        <h3><p>Doctor ratings by topic</p></h3>
+                        <h4><p>
+                        <b><font color="#366ec9">{{selected[index]["percent1"].split("SSEEPP")[1]}}%</font></b> of the people talk about <b>{{selected[index]["percent1"].split("SSEEPP")[0]}}</b> positively
+                        <div class="progress" style="width:70%;">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{selected[index]["percent1"].split("SSEEPP")[1]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{selected[index]["percent1"].split("SSEEPP")[1]}}%">
+                        {{selected[index]["percent1"].split("SSEEPP")[1]}}%
+                        </div>
+                        </div>      
+                        </p></h4>
+                        {% else %}
+                        <h3><p>This doctor does not have enough reviews for generating a complete snapshot.</p></h3>
+                        {% endif %}
+                        
+                        {% if  selected[index]["percent2"] != "NONE" %}
+                        <h4><p>
+                        <b><font color="#366ec9">{{selected[index]["percent2"].split("SSEEPP")[1]}}%</font></b> of the people talk about <b>{{selected[index]["percent2"].split("SSEEPP")[0]}}</b> positively
+                        <div class="progress" style="width:70%;">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{selected[index]["percent2"].split("SSEEPP")[1]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{selected[index]["percent2"].split("SSEEPP")[1]}}%">
+                        {{selected[index]["percent2"].split("SSEEPP")[1]}}%
+                        </div>
+                        </div>      
+                        </p></h4>
+                        {% endif %}
+                        
+                        {% if  selected[index]["percent3"] != "NONE" %}
+                        <h4><p>
+                        <b><font color="#366ec9">{{selected[index]["percent3"].split("SSEEPP")[1]}}%</font></b> of the people talk about <b>{{selected[index]["percent3"].split("SSEEPP")[0]}}</b> positively
+                        <div class="progress" style="width:70%;">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{selected[index]["percent3"].split("SSEEPP")[1]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{selected[index]["percent3"].split("SSEEPP")[1]}}%">
+                        {{selected[index]["percent3"].split("SSEEPP")[1]}}%
+                        </div>
+                        </div>      
+                        </p></h4>
+                        {% endif %}
+                        
+                        {% if  selected[index]["percent4"] != "NONE" %}
+                        <h4><p>
+                        <b><font color="#366ec9">{{selected[index]["percent4"].split("SSEEPP")[1]}}%</font></b> of the people talk about <b>{{selected[index]["percent4"].split("SSEEPP")[0]}}</b> positively
+                        <div class="progress" style="width:70%;">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{selected[index]["percent4"].split("SSEEPP")[1]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{selected[index]["percent4"].split("SSEEPP")[1]}}%">
+                        {{selected[index]["percent4"].split("SSEEPP")[1]}}%
+                        </div>
+                        </div>      
+                        </p></h4>
+                        {% endif %}
+                        
+                        {% if  selected[index]["percent5"] != "NONE" %}
+                        <h4><p>
+                        <b><font color="#366ec9">{{selected[index]["percent5"].split("SSEEPP")[1]}}%</font></b> of the people talk about <b>{{selected[index]["percent5"].split("SSEEPP")[0]}}</b> positively
+                        <div class="progress"  style="width:70%;">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{selected[index]["percent5"].split("SSEEPP")[1]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{selected[index]["percent5"].split("SSEEPP")[1]}}%">
+                        {{selected[index]["percent5"].split("SSEEPP")[1]}}%
+                        </div>
+                        </div>      
+                        </p></h4>
+                        {% endif %}
+                        
+                        {% if selected[index]["summary"] != "NONE" %}
+                        <br>
+                        <h3><p>Doctor review highlights</p></h3>
+                        <h4>
+                        {% if selected[index]["summary"].split("SSEEPP")[0] != "" %}
+                        <p><font color="#248c3e"><b>Positive highlights:</b></font></p>
+                        <p>&#8226;&nbsp; {{selected[index]["summary"].split("SSEEPP")[0]}}</p>
+                        {% endif %}
+                        {% if selected[index]["summary"].split("SSEEPP")[1] != "" %}
+                        <p>&#8226;&nbsp; {{selected[index]["summary"].split("SSEEPP")[1]}}</p>
+                        {% endif %}
+                        {% if selected[index]["summary"].split("SSEEPP")[2] != "" %}
+                        <p>&#8226;&nbsp; {{selected[index]["summary"].split("SSEEPP")[2]}}</p>
+                        {% endif %}
+                        {% if selected[index]["summary"].split("SSEEPP")[3] != "" %}
+                        <p><font color="#b72a2a"><b>Negative highlights:</b></font></p>
+                        <p>&#8226;&nbsp; {{selected[index]["summary"].split("SSEEPP")[3]}}</p>
+                        {% endif %}
+                        {% if selected[index]["summary"].split("SSEEPP")[4] != "" %}
+                        <p>&#8226;&nbsp; {{selected[index]["summary"].split("SSEEPP")[4]}}</p>
+                        {% endif %}
+                        {% if selected[index]["summary"].split("SSEEPP")[5] != "" %}
+                        <p>&#8226;&nbsp; {{selected[index]["summary"].split("SSEEPP")[5]}}</p>
+                        {% endif %}
+                        </h4>
+                        (There are {{selected[index]["summary"].split("SSEEPP")[6]}} review sentences in total.)
+                        <br>
+                        {% endif %}
+                        
+                        <hr>
+                        <p>Address: {{selected[index]["address"]}}</p>
+                        <p>Phone: {{selected[index]["phone"]}}</p>
+                        <p>Yelp: <a href="{{selected[index]["yelp"]}}" target="_blank">{{selected[index]["yelp"]}}</a></p>
+                        
+                        <div align="right"><a href="#top">Back to top</a></div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <center><p>Copyright &copy; Nuo Wang 2017 &nbsp&nbsp|&nbsp&nbsp
+                    <a href="https://www.linkedin.com/in/nuowang/" target="_blank" vspace="10px">About me</a> &nbsp&nbsp|&nbsp&nbsp
+                    <a href="mailto:nwangpierse@gmail.com" target="_blank" vspace="10px">Contact</a></p></center>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
