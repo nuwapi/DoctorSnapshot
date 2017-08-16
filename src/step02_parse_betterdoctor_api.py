@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jun  1 13:24:14 2017
-
-@author: nwang
-"""
+# Created by Nuo wang.
+# Last modified on 8/16/2017.
 
 import json
 import numpy as np
