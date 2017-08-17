@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Created by Nuo wang.
+# Created by Nuo Wang.
 # Last modified on 8/16/2017.
 
 # Required libraries.
