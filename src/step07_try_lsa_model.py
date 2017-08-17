@@ -84,18 +84,20 @@ lsa_model = models.LsiModel(corpus, id2word=dictionary, num_topics=1000)
 # Get most frequent unique words.
 all_words_unique = nltk.FreqDist(all_words).most_common(4100)
 
-# Training input for t-SNE.
-most_popular_vec = []
-for index1 in range(0, num_category):
-    for index2, item2 in enumerate(most_popular[index1]):
-        most_popular_vec.append(list(model.wv[item2]))
-
+# Prepare input for t-SNE
+all_words_unique = nltk.FreqDist(all_words).most_common(4100)
+all_words_unique_vec = []
+all_words_unique_word = []
+for index2, item2 in enumerate(all_words_unique):
+    all_words_unique_vec.append(list(model.wv[item2[0]]))
+    all_words_unique_word.append(item2[0])
+    
 # Set up t-SNE model.
-tsne_model = TSNE(n_components=2, random_state=0, perplexity=8.0)
-X = np.array(most_popular_vec)
+tsne_model = TSNE(n_components=2, random_state=10, perplexity=50.0)
+X = np.array(all_words_unique_vec)
 np.set_printoptions(suppress=True)
-# Train t-SNE.
-tsne_result = tsne_model.fit_transform(X) 
+# Train t-SNE model.
+tsne_result = tsne_model.fit_transform(X)
 
 ### Step 4: Project previous LDA topics on to the LSA/t-SNE space.
 
