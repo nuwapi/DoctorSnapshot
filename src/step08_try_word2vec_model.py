@@ -67,7 +67,6 @@ for sentence in review_main_text_list:
     for token in cleaned_text:
         all_words.append(token)
 
-
 ### Step 3: Train word2vec and t-SNE model.
 # Here I train a word2vec model and reduce it to a 2D t-SNE space.
 
