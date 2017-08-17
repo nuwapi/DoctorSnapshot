@@ -1,5 +1,5 @@
 # DoctorSnapshot
-DoctorSnapshot is a machine learning-powered webapp that helps users spot the doctors best for them by providing itemized doctor ratings and review highlights extracted from the doctor's reviews. Users can leave all of the tedious review readings to DoctorSnapshot and enjoy the highly concentrated report (a doctor's snapshot) for quick decision making.
+DoctorSnapshot is a machine learning-powered webapp that helps users spot the doctors best for them by providing itemized doctor ratings and review highlights extracted from the doctor's reviews. Users can leave all of the tedious review readings to DoctorSnapshot and enjoy highly concentrated reports (doctors' snapshots) for quick decision making.
 
 * [DoctorSnapshot website](http://doctorsnapshot.herokuapp.com/)
 * [DoctorSnapshot presentation slides](http://slides.com/nwangpierse/doctorsnapshot_slides)
