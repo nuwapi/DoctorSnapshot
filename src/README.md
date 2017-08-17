@@ -12,4 +12,4 @@ Further exploration
 * Step 7: Try topic modeling/word embedding model [latent semantic analysis](https://en.wikipedia.org/wiki/Latent_semantic_analysis) (LSA) and compare it to LDA.
 * Step 8: Try word embedding model [word2vec](https://en.wikipedia.org/wiki/Word2vec) and compare it to LDA.
 
-Overall, LDA is a better fit for topic modeling compared to LSA and word2vec for this dataset.
+Overall, LDA is a better fit for topic modeling compared to LSA and word2vec for this dataset. Also [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) is attempted in step 5 and it does not work well with this dataset.
