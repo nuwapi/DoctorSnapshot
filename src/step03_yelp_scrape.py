@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Created by Nuo wang.
+# Created by Nuo Wang.
 # Last modified on 8/16/2017.
 
 # For every doctor in my dataset (of doctors that have a Yelp page), I need to scrape their Yelp reviews.
