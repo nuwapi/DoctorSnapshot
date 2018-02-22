@@ -4,8 +4,8 @@ DoctorSnapshot is a machine learning-powered webapp that helps users spot the do
 * [DoctorSnapshot website](http://doctorsnapshot.herokuapp.com/)
 * [DoctorSnapshot blog post](https://blog.insightdatascience.com/topic-modeling-and-sentiment-analysis-to-pinpoint-the-perfect-doctor-6a8fdd4a3904)
 * [DoctorSnapshot presentation slides](http://slides.com/nwangpierse/doctorsnapshot_slides)
-* [The DoctorSnapshot pipeline](https://github.com/nuowang/DoctorSnapshot/tree/master/src)
-* [Running your copy of DoctorSnapshot](https://github.com/nuowang/DoctorSnapshot/tree/master/webapp)
+* [The DoctorSnapshot pipeline](https://github.com/nuwapi/DoctorSnapshot/tree/master/src)
+* [Running your copy of DoctorSnapshot](https://github.com/nuwapi/DoctorSnapshot/tree/master/webapp)
 
 The DoctorSnapshot project was completed in only 3 weeks, from ideation to deployment. Many future improvements are possible and desired. I will be glad to hear your suggestions!
 
